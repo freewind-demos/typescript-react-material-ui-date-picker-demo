@@ -27,6 +27,7 @@ export default function MyList() {
         views={["date"]}
         value={selectedDate}
         onChange={onChange}
+        autoOk={true}
       />
     </MuiPickersUtilsProvider>
   </div>
