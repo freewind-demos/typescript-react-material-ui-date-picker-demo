@@ -1,34 +1,11 @@
-import React, {useState} from 'react'
-import {MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers';
-import MomentUtils from '@date-io/moment';
-import {Moment} from 'moment';
+import React from 'react'
+import DataFnsPicker from './DateFnsPicker';
+import MomentPicker from './MomentPicker';
 
-export default function MyList() {
-  const [selectedDate, handleDateChange] = useState<Date | null>(new Date());
-
-  function onChange(date: Moment | null) {
-    if (date) {
-      handleDateChange(date.toDate());
-    } else {
-      handleDateChange(null);
-    }
-  }
-
+export default function Hello() {
   return <div>
-    <h1>Selected Date: {(selectedDate || '').toString()}</h1>
-    <MuiPickersUtilsProvider utils={MomentUtils}>
-      <KeyboardDatePicker
-        disableFuture
-        variant="inline"
-        inputVariant="outlined"
-        openTo="year"
-        format="MM/DD/YYYY"
-        label="Date of birth"
-        views={["date"]}
-        value={selectedDate}
-        onChange={onChange}
-        autoOk={true}
-      />
-    </MuiPickersUtilsProvider>
+    <DataFnsPicker/>
+    <hr/>
+    <MomentPicker/>
   </div>
 }
